@@ -43,7 +43,7 @@ Every spot that needs your input has a `<!-- REPLACE ... -->` comment.
 
 | What | Where |
 |---|---|
-| **Fonts** | Titles use Bebas Neue (all caps, free from Google Fonts). Body text uses Dashiell Fine if you add it: put it in a Web Project at [fonts.adobe.com](https://fonts.adobe.com), paste the kit `<link>` at the `REPLACE WITH YOUR ADOBE FONTS KIT` comment, and confirm the CSS family name in `--font-text`. Until then the body falls back to Newsreader. |
+| **Fonts** | Adobe Fonts kit `zkx2okh` is linked in `<head>`. Your name uses Sunbeat Strong (`--font-name`); card titles, buttons and other all-caps labels use Mestiza Bold (`--font-display`); body text falls back to Newsreader unless you add Dashiell Fine to the kit. Add the site's domain to the Web Project at fonts.adobe.com if fonts don't load once it's live. |
 | **Headshot** | Hidden for now. In `index.html`, find `HEADSHOT (currently hidden)`, delete the word `hidden`, add `assets/avatar.jpg`, delete the placeholder `<div>` and uncomment the `<img>`. |
 | **Project images (optional)** | Uncomment the `REPLACE WITH YOUR PROJECT IMAGE` line at the top of each project card. |
 | **Featured articles** | Two slots under `FEATURED ARTICLES`. Slot 1 links to your Heliocentrism and Success post. For each, replace the headline, link, summary, byline, image (`assets/article-1.jpg`, `article-2.jpg`) and the caption / credit shown beneath the image. |
@@ -56,5 +56,5 @@ Every spot that needs your input has a `<!-- REPLACE ... -->` comment.
 
 - The Experience section intentionally uses lowercase text (except GEICO) per the requested style, so it uses the body font rather than the all-caps title font.
 - The top bar, name, role line and section headers are lowercase italic (the same style as "talk ball?"). Section titles are written in Title Case in the HTML and displayed in all caps by the title font. The closing "talk ball?" header is intentionally lowercase and uses the body font.
-- Bebas Neue and the Newsreader fallback load from Google Fonts; Adobe Fonts loads from `use.typekit.net` once you add your kit.
+- Newsreader (body fallback) loads from Google Fonts; Sunbeat Strong and Mestiza load from Adobe Fonts (`use.typekit.net`).
 - Want a custom domain later? Settings → Pages → **Custom domain**.

@@ -19,7 +19,7 @@
 
   <!-- =====================================================================
        FONTS
-       Titles:  Bebas Neue (an all-caps display face, loaded free from Google Fonts below).
+       Titles:  Mestiza Bold, all caps (Adobe Fonts kit below). Name: Sunbeat Strong.
        Body:    Dashiell Fine from Adobe Fonts if you add your kit, otherwise Newsreader.
        To use Dashiell Fine: add it to a Web Project at https://fonts.adobe.com, paste the
        kit <link> in place of the commented-out line, and confirm the CSS family name in
@@ -28,7 +28,8 @@
   <!-- REPLACE WITH YOUR ADOBE FONTS KIT: <link rel="stylesheet" href="https://use.typekit.net/YOUR_KIT_ID.css"> -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.typekit.net/zkx2okh.css">
 
   <script>document.documentElement.classList.add('js');</script>
 
@@ -50,7 +51,8 @@
       --teal-hi: #8fca9f;                  /* light sage green for accents on brown */
       --coral: #ec8a84;                    /* light burgundy tint for small accents */
 
-      --font-display: "Bebas Neue", "Oswald", Impact, "Arial Narrow", sans-serif;
+      --font-display: "mestiza", "Oswald", Impact, "Arial Narrow", sans-serif;
+      --font-name: "sunbeat-strong", "Newsreader", Georgia, serif;
       --font-text: "dashiell-fine", "Newsreader", Georgia, "Times New Roman", serif;
 
       --maxw: 1000px;
@@ -70,17 +72,17 @@
     ::selection { background: var(--burgundy); color: var(--cream); }
     :focus-visible { outline: 3px solid var(--teal-hi); outline-offset: 3px; border-radius: 4px; }
 
-    /* All-caps title face (Bebas Neue only has capitals; text-transform keeps fallbacks in caps).
+    /* All-caps title face (Mestiza Bold via Adobe Fonts; text-transform forces caps).
        Titles are also written in Title Case in the HTML. */
     h3, .btn, .facts strong, .card-links a {
       font-family: var(--font-display);
-      font-weight: 400;
+      font-weight: 700;
       text-transform: uppercase;
     }
     h1, h2, h3 { margin: 0; line-height: .95; letter-spacing: .03em; }
 
     /* Lowercase italic serif (same voice as "talk ball?"): top bar, name, role line and section headers */
-    h1, h2, .brand, .nav ul a, .role {
+    h1, h2, .role {
       font-family: var(--font-text);
       font-style: italic;
       font-weight: 500;
@@ -95,10 +97,11 @@
     /* ---------- Navigation ---------- */
     .site-header { background: #190f02; border-bottom: 1px solid var(--burgundy); z-index: 50; }
     .nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .2rem 1rem; padding: .7rem 0; }
+    .brand, .nav ul a, .site-footer { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-style: normal; letter-spacing: .03em; }
     .brand { font-size: 1.9rem; line-height: 1; text-decoration: none; }
     .brand span { color: var(--coral); }
-    .nav ul { display: flex; gap: .2rem 1.3rem; list-style: none; margin: 0; padding: 0; }
-    .nav ul a { text-decoration: none; font-size: 1.2rem; color: var(--cream-dim); transition: color .2s; }
+    .nav ul { display: flex; flex-wrap: wrap; gap: .2rem 1.1rem; list-style: none; margin: 0; padding: 0; }
+    .nav ul a { text-decoration: none; font-size: 1.05rem; color: var(--cream-dim); transition: color .2s; }
     .nav ul a:hover { color: var(--cream); }
     @media (min-width: 720px) { .site-header { position: sticky; top: 0; } .nav ul { gap: 2.2rem; } }
 
@@ -108,9 +111,9 @@
     .avatar { width: clamp(110px, 20vw, 190px); aspect-ratio: 1; border-radius: 50%; overflow: hidden; }
     .avatar img, .avatar-ph { width: 100%; height: 100%; object-fit: cover; }
     .avatar-ph { display: grid; place-items: center; background: var(--forest); border: 3px solid var(--burgundy); border-radius: 50%; color: var(--cream); font-family: var(--font-text); font-style: italic; font-weight: 500; font-size: clamp(2.8rem, 8vw, 5rem); line-height: 1; padding-bottom: .08em; }
-    .hero h1 { font-size: clamp(3.4rem, 11.5vw, 7.5rem); line-height: .95; letter-spacing: -.02em; }
+    .hero h1 { font-family: var(--font-name); font-style: normal; font-weight: 400; font-size: clamp(3.4rem, 11.5vw, 7.5rem); line-height: .95; letter-spacing: -.02em; }
     .role { font-size: clamp(1.3rem, 2.8vw, 1.8rem); line-height: 1.2; color: var(--teal-hi); margin: 1.2rem 0 .8rem; }
-    .bio { max-width: 34rem; color: var(--cream-dim); margin-bottom: 0; }
+    .bio { font-family: var(--font-name); font-size: 1.3rem; max-width: 34rem; color: var(--cream-dim); margin-bottom: 0; }
     .cta { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.6rem; }
     .btn { display: inline-flex; align-items: center; padding: .45rem 1.1rem .38rem; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; font-size: 1.15rem; line-height: 1.2; letter-spacing: .1em; transition: background .2s, color .2s, border-color .2s; }
     .btn:hover { background: var(--cream); color: var(--bg); border-color: var(--cream); }
