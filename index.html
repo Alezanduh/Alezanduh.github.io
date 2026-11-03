@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alexander Marsh — Data Science &amp; Statistics</title>
+  <meta name="description" content="Alexander Marsh is a Statistics and Data Science student at the University of Michigan building data-driven projects in sports analytics, equity and justice.">
+  <meta name="theme-color" content="#150c07">
+  <meta name="color-scheme" content="dark">
+
+  <!-- Open Graph (link previews). REPLACE the image URL once you have a preview image, e.g. https://alezanduh.github.io/assets/preview.png -->
+  <meta property="og:title" content="Alexander Marsh — Data Science &amp; Statistics">
+  <meta property="og:description" content="Data-driven projects in sports analytics, equity and justice.">
+  <meta property="og:type" content="website">
+  <!-- <meta property="og:image" content="https://alezanduh.github.io/assets/preview.png"> -->
+
+  <!-- Favicon: inline SVG monogram. REPLACE with your own file if you like: <link rel="icon" href="assets/favicon.png"> -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b100a'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-style='italic' font-size='30' text-anchor='middle' fill='%23f3ecd9'%3Eam%3C/text%3E%3C/svg%3E">
+
+  <!-- =====================================================================
+       FONTS
+       Titles:  Bebas Neue (an all-caps display face, loaded free from Google Fonts below).
+       Body:    Dashiell Fine from Adobe Fonts if you add your kit, otherwise Newsreader.
+       To use Dashiell Fine: add it to a Web Project at https://fonts.adobe.com, paste the
+       kit <link> in place of the commented-out line, and confirm the CSS family name in
+       the kit's embed code matches --font-text in the <style> block below.
+       ===================================================================== -->
+  <!-- REPLACE WITH YOUR ADOBE FONTS KIT: <link rel="stylesheet" href="https://use.typekit.net/YOUR_KIT_ID.css"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+
+  <script>document.documentElement.classList.add('js');</script>
+
+  <style>
+    /* ---------- Design tokens (dark green theme) ---------- */
+    :root {
+      color-scheme: dark;
+
+      /* Your palette */
+      --green: #085c2a;
+      --teal: #0c614d;
+      --burgundy: #6b1212;
+
+      --bg: #1b100a;                       /* page background: dark walnut brown */
+      --forest: #0d4a26;                   /* darker green for fills (avatar, hover accents) */
+      --cream: #f3ecd9;                    /* primary text */
+      --cream-dim: rgba(243, 236, 217, .74);
+      --line: rgba(243, 236, 217, .20);
+      --teal-hi: #8fca9f;                  /* light sage green for accents on brown */
+      --coral: #ec8a84;                    /* light burgundy tint for small accents */
+
+      --font-display: "Bebas Neue", "Oswald", Impact, "Arial Narrow", sans-serif;
+      --font-text: "dashiell-fine", "Newsreader", Georgia, "Times New Roman", serif;
+
+      --maxw: 1000px;
+      --gutter: 20px;
+    }
+
+    /* ---------- Base ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background: var(--bg); }
+    body { margin: 0; font-family: var(--font-text); font-size: 1.1rem; line-height: 1.6; color: var(--cream); background: var(--bg); -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    p { margin: 0 0 1em; }
+    ::selection { background: var(--burgundy); color: var(--cream); }
+    :focus-visible { outline: 3px solid var(--teal-hi); outline-offset: 3px; border-radius: 4px; }
+
+    /* All-caps title face (Bebas Neue only has capitals; text-transform keeps fallbacks in caps).
+       Titles are also written in Title Case in the HTML. */
+    h3, .btn, .facts strong, .card-links a {
+      font-family: var(--font-display);
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { margin: 0; line-height: .95; letter-spacing: .03em; }
+
+    /* Lowercase italic serif (same voice as "talk ball?"): top bar, name, role line and section headers */
+    h1, h2, .brand, .nav ul a, .role {
+      font-family: var(--font-text);
+      font-style: italic;
+      font-weight: 500;
+      text-transform: lowercase;
+    }
+
+    .wrap { width: min(100% - 2 * var(--gutter), var(--maxw)); margin-inline: auto; }
+    .skip { position: absolute; left: -999px; top: 8px; background: var(--cream); color: var(--bg); padding: .5rem 1rem; z-index: 100; border-radius: 4px; }
+    .skip:focus { left: 8px; }
+    section { scroll-margin-top: 64px; }
+
+    /* ---------- Navigation ---------- */
+    .site-header { background: #150c07; border-bottom: 1px solid var(--burgundy); z-index: 50; }
+    .nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .2rem 1rem; padding: .7rem 0; }
+    .brand { font-size: 1.9rem; line-height: 1; text-decoration: none; }
+    .brand span { color: var(--coral); }
+    .nav ul { display: flex; gap: .2rem 1.3rem; list-style: none; margin: 0; padding: 0; }
+    .nav ul a { text-decoration: none; font-size: 1.2rem; color: var(--cream-dim); transition: color .2s; }
+    .nav ul a:hover { color: var(--cream); }
+    @media (min-width: 720px) { .site-header { position: sticky; top: 0; } .nav ul { gap: 2.2rem; } }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: clamp(3rem, 8vw, 6rem) 0 clamp(3rem, 7vw, 5rem); }
+    .hero-grid { display: grid; gap: 2rem; align-items: center; }
+    .avatar { width: clamp(110px, 20vw, 190px); aspect-ratio: 1; border-radius: 50%; overflow: hidden; }
+    .avatar img, .avatar-ph { width: 100%; height: 100%; object-fit: cover; }
+    .avatar-ph { display: grid; place-items: center; background: var(--forest); border: 3px solid var(--burgundy); border-radius: 50%; color: var(--cream); font-family: var(--font-text); font-style: italic; font-weight: 500; font-size: clamp(2.8rem, 8vw, 5rem); line-height: 1; padding-bottom: .08em; }
+    .eyebrow { font-style: italic; color: var(--coral); margin-bottom: .6rem; }
+    .hero h1 { font-size: clamp(3.4rem, 11.5vw, 7.5rem); line-height: .95; letter-spacing: -.02em; }
+    .role { font-size: clamp(1.3rem, 2.8vw, 1.8rem); line-height: 1.2; color: var(--teal-hi); margin: 1.2rem 0 .8rem; }
+    .bio { max-width: 34rem; color: var(--cream-dim); margin-bottom: 0; }
+    .cta { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.6rem; }
+    .btn { display: inline-flex; align-items: center; padding: .45rem 1.1rem .38rem; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; font-size: 1.15rem; line-height: 1.2; letter-spacing: .1em; transition: background .2s, color .2s, border-color .2s; }
+    .btn:hover { background: var(--cream); color: var(--bg); border-color: var(--cream); }
+    .btn.primary { background: var(--burgundy); border-color: var(--burgundy); }
+    .btn.primary:hover { background: var(--cream); border-color: var(--cream); color: var(--bg); }
+    @media (min-width: 760px) { .hero-grid { grid-template-columns: 1fr auto; gap: 3rem; } .avatar { order: 2; } }
+
+    /* ---------- Sections ---------- */
+    .block { padding: clamp(2.5rem, 6vw, 4.5rem) 0; border-top: 1px solid rgba(107, 18, 18, .75); }
+    .block h2 { font-size: clamp(2.4rem, 5.5vw, 3.6rem); line-height: 1; letter-spacing: -.01em; margin-bottom: 1.6rem; }
+    .block:not(.contact) h2::after { content: ""; display: block; width: 3rem; height: 4px; margin-top: .7rem; background: var(--burgundy); border-radius: 2px; }
+
+    /* About */
+    .about { display: grid; gap: 1.6rem; }
+    .about p { color: var(--cream-dim); }
+    .about p:last-child { margin-bottom: 0; }
+    .facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; align-content: start; }
+    .facts li { padding-left: 1rem; border-left: 3px solid var(--burgundy); }
+    .facts strong { display: block; font-size: 1.4rem; letter-spacing: .07em; line-height: 1.15; }
+    .facts span { color: var(--cream-dim); font-size: .95rem; }
+    @media (min-width: 760px) { .about { grid-template-columns: 7fr 5fr; gap: 3rem; align-items: start; } }
+
+    /* Projects */
+    .grid { display: grid; gap: 1.2rem; }
+    @media (min-width: 720px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 1.4rem; } }
+    .card { display: flex; flex-direction: column; background: rgba(13, 74, 38, .22); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; transition: border-color .25s; }
+    .card:hover { border-color: var(--coral); }
+    .card > img { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; }
+    .card-body { padding: 1.3rem 1.4rem 1.4rem; display: flex; flex-direction: column; flex: 1; }
+    .card h3 { font-size: 1.9rem; margin-bottom: .6rem; }
+    .card p { color: var(--cream-dim); font-size: 1rem; line-height: 1.55; margin-bottom: 1.1rem; }
+    .card-links { display: flex; flex-wrap: wrap; gap: .3rem 1.3rem; margin-top: auto; }
+    .card-links a { font-size: 1.15rem; letter-spacing: .1em; text-decoration: none; border-bottom: 2px solid var(--burgundy); transition: color .2s, border-color .2s; }
+    .card-links a:hover { color: var(--coral); border-color: var(--coral); }
+
+    /* Experience (kept lowercase on purpose, so it uses the text face) */
+    .timeline { list-style: none; margin: 0; padding: 0; }
+    .timeline li { display: grid; gap: .1rem 2rem; padding: .95rem 0; border-bottom: 1px solid rgba(107, 18, 18, .75); }
+    .timeline li:first-child { padding-top: 0; }
+    .timeline li:last-child { border-bottom: 0; padding-bottom: 0; }
+    .tl-role { font-size: clamp(1.15rem, 2.4vw, 1.4rem); line-height: 1.3; }
+    .tl-role .at { color: var(--coral); font-style: italic; }
+    .tl-dates { color: var(--cream-dim); font-style: italic; font-size: 1rem; }
+    @media (min-width: 820px) {
+      .timeline li { grid-template-columns: 1fr auto; align-items: baseline; }
+      .tl-dates { text-align: right; white-space: nowrap; }
+    }
+
+    /* Contact + footer (the "talk ball?" header is intentionally lowercase, in the text face) */
+    .contact { text-align: center; padding: clamp(3.5rem, 9vw, 7rem) 0; }
+    .contact h2 { font-family: var(--font-text); font-weight: 500; font-style: italic; text-transform: none; letter-spacing: -.01em; line-height: 1; font-size: clamp(3.4rem, 12vw, 7.5rem); margin-bottom: .8rem; }
+    .contact p { color: var(--cream-dim); font-size: 1.25rem; margin: 0; }
+    .contact a { color: var(--cream); text-decoration-color: var(--coral); text-underline-offset: 4px; }
+    .site-footer { border-top: 1px solid var(--burgundy); padding: 1.3rem 0 2rem; color: var(--cream-dim); font-size: .95rem; }
+    .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .4rem 1.5rem; }
+    .foot nav { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; }
+    .foot a { text-decoration: none; }
+    .foot a:hover { color: var(--coral); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* ---------- Reveal on scroll (only when JS is available) ---------- */
+    .js .reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+    .js .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ===================== HEADER / NAV ===================== -->
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="Alexander Marsh, back to top">a<span>m</span></a>
+      <ul>
+        <li><a href="#about">about</a></li>
+        <li><a href="#projects">projects</a></li>
+        <li><a href="#experience">experience</a></li>
+        <li><a href="#contact">contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="top" aria-label="Introduction">
+      <div class="wrap hero-grid">
+        <div class="avatar">
+          <!-- REPLACE WITH YOUR PHOTO: delete the placeholder <div> below and use
+               <img src="assets/avatar.jpg" alt="Portrait of Alexander Marsh" width="460" height="460"> -->
+          <div class="avatar-ph" aria-hidden="true">am</div>
+        </div>
+
+        <div>
+          <p class="eyebrow">Ann Arbor, Michigan</p>
+          <h1>alexander marsh</h1>
+          <p class="role">data science &amp; statistics at university of michigan</p>
+          <p class="bio">Always curious. Interested in data-based solutions with a focus on equity. I love basketball and music.</p>
+
+          <!-- Call-to-action buttons: projects, resume, and every contact / social link -->
+          <div class="cta">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <!-- REPLACE: swap the PDF in /assets with your latest resume (keep the filename, or update it here) -->
+            <a class="btn" href="assets/Alexander-Marsh-Resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
+            <a class="btn" href="mailto:groethe@umich.edu">Email</a>
+            <a class="btn" href="https://www.linkedin.com/in/alexandergroethe/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a class="btn" href="https://github.com/Alezanduh" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="btn" href="https://alexanderhoops.substack.com/" target="_blank" rel="noopener">Substack ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="block" id="about" aria-labelledby="about-h">
+      <div class="wrap reveal">
+        <h2 id="about-h">about me</h2>
+        <div class="about">
+          <div>
+            <p>I'm Alexander Marsh, a senior studying Statistics and Data Science at the University of Michigan – Ann Arbor (graduating May 2027). I also spent Winter/Spring 2026 studying Informatics at King's College London.</p>
+            <p>Data intrigues me as a tool to satisfy my ever-curious mind. I adore basketball and you'll find that reflected in most of my applied work, along with data-driven projects that derive tangible benefit and promote equity and justice.</p>
+          </div>
+          <ul class="facts">
+            <li><strong>University Of Michigan</strong><span>B.S. Statistics, Data Science · May 2027</span></li>
+            <li><strong>King's College London</strong><span>Informatics · January – June 2026</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FEATURED PROJECTS ===================== -->
+    <section class="block" id="projects" aria-labelledby="projects-h">
+      <div class="wrap">
+        <h2 id="projects-h" class="reveal">featured projects</h2>
+
+        <div class="grid">
+
+          <article class="card reveal">
+            <!-- REPLACE WITH YOUR PROJECT IMAGE (optional): <img src="assets/project-mbb.jpg" alt="Michigan Basketball spacing analysis"> -->
+            <div class="card-body">
+              <h3>Insights For Michigan Men's Basketball</h3>
+              <p>Partnered with SkillCorner to engineer spatial and spacing features from high-frequency computer-vision tracking data, then built XGBoost models of Shot Quality and EPA to evaluate pick-and-roll decisions for the coaching staff. Presented at the organization's annual symposium.</p>
+              <div class="card-links">
+                <!-- REPLACE WITH THE GITHUB REPOSITORY LINK for this project (currently points to your profile) -->
+                <a href="https://github.com/Alezanduh" target="_blank" rel="noopener">GitHub ↗</a>
+                <a href="https://docs.google.com/presentation/d/1n9SdwTaZa_dMbo32Hf92RPkYWGmY6gta/edit?usp=sharing" target="_blank" rel="noopener">Presentation ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <!-- REPLACE WITH YOUR PROJECT IMAGE (optional): <img src="assets/project-nba-dashboard.jpg" alt="NBA interactive dashboard screenshot"> -->
+            <div class="card-body">
+              <h3>NBA Interactive Dashboard</h3>
+              <p>End-to-end web app that ingests live play-by-play data through the nba_api and generates matchup summaries from 2005 to present. Models real-time momentum shifts with time-decayed algorithms and a reactive Streamlit front end.</p>
+              <div class="card-links">
+                <a href="https://github.com/Alezanduh/nba-dashboard" target="_blank" rel="noopener">GitHub ↗</a>
+                <!-- REPLACE WITH YOUR LIVE APP LINK (e.g. Streamlit Community Cloud URL), or delete this line -->
+              </div>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <!-- REPLACE WITH YOUR PROJECT IMAGE (optional): <img src="assets/project-wayne-county.jpg" alt="Wayne County case analysis"> -->
+            <div class="card-body">
+              <h3>Wayne County Legal Justice Analysis</h3>
+              <p>Python pipeline that parses and standardizes 31,000 Wayne County case files (2000–2025) into structured JSON and a SQLite database, then analyzes weapons felony charges against Michigan Compiled Laws to surface potential over-prosecution and charging disparities.</p>
+              <div class="card-links">
+                <!-- REPLACE WITH THE GITHUB REPOSITORY LINK for this project (currently points to your profile) -->
+                <a href="https://github.com/Alezanduh" target="_blank" rel="noopener">GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <!-- REPLACE WITH YOUR PROJECT IMAGE (optional): <img src="assets/project-nba-nn.jpg" alt="Neural network forecasting results"> -->
+            <div class="card-body">
+              <h3>Deep Neural Network For NBA Player Forecasting</h3>
+              <p>Deep neural network trained on rolling seasons to forecast NBA player performance, with normalization and one-hot encoding of positional features, K-fold cross-validation, and regularization to reduce overfitting.</p>
+              <div class="card-links">
+                <!-- REPLACE WITH THE GITHUB REPOSITORY LINK for this project (currently points to your profile) -->
+                <a href="https://github.com/Alezanduh" target="_blank" rel="noopener">GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== WORK EXPERIENCE ===================== -->
+    <section class="block" id="experience" aria-labelledby="exp-h">
+      <div class="wrap">
+        <h2 id="exp-h" class="reveal">experience</h2>
+        <!-- Format: [position] @ [company]   [start date] - [end date / present]  (lowercase except GEICO) -->
+        <ol class="timeline reveal">
+          <li>
+            <span class="tl-role">pricing analyst intern <span class="at">@</span> GEICO</span>
+            <span class="tl-dates">may 2026 - august 2026</span>
+          </li>
+          <li>
+            <span class="tl-role">sports analyst assistant <span class="at">@</span> university of michigan human performance &amp; sport science center</span>
+            <span class="tl-dates">august 2026 - present</span>
+          </li>
+          <li>
+            <span class="tl-role">stats 250 instructional assistant <span class="at">@</span> university of michigan department of statistics</span>
+            <span class="tl-dates">august 2025 - present</span>
+          </li>
+          <li>
+            <span class="tl-role">r tutorial lead &amp; lead data analyst <span class="at">@</span> michigan sports analytics society</span>
+            <span class="tl-dates">august 2024 - present</span>
+          </li>
+          <li>
+            <span class="tl-role">manager <span class="at">@</span> east quad blue cafe</span>
+            <span class="tl-dates">august 2024 - present</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="block contact" id="contact" aria-labelledby="contact-h">
+      <div class="wrap reveal">
+        <h2 id="contact-h">talk ball?</h2>
+        <p>reach me at <a href="mailto:groethe@umich.edu">groethe@umich.edu</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <span>© <span id="year">2026</span> Alexander Marsh</span>
+      <nav aria-label="Footer">
+        <a href="https://www.linkedin.com/in/alexandergroethe/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Alezanduh" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://alexanderhoops.substack.com/" target="_blank" rel="noopener">Substack</a>
+        <a href="assets/Alexander-Marsh-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="#top">Back To Top ↑</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    try { document.getElementById('year').textContent = new Date().getFullYear(); } catch (e) {}
+
+    // Gentle reveal-on-scroll; content is always visible if this fails.
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>
