@@ -6,7 +6,7 @@ A single-page, self-contained portfolio (`index.html`) built for GitHub Pages. N
 Alezanduh.github.io/
 ├── index.html                          # the whole site (HTML + CSS + a little JS)
 ├── assets/
-│   └── Alexander-Marsh-Resume.pdf      # linked from the Resume buttons
+│   ├── Alexander-Marsh-Resume.pdf      # linked from the Resume buttons
 └── README.md                           # this guide
 ```
 
@@ -44,11 +44,12 @@ Every spot that needs your input has a `<!-- REPLACE ... -->` comment.
 | What | Where |
 |---|---|
 | **Fonts** | Titles use Bebas Neue (all caps, free from Google Fonts). Body text uses Dashiell Fine if you add it: put it in a Web Project at [fonts.adobe.com](https://fonts.adobe.com), paste the kit `<link>` at the `REPLACE WITH YOUR ADOBE FONTS KIT` comment, and confirm the CSS family name in `--font-text`. Until then the body falls back to Newsreader. |
-| **Profile photo** | `REPLACE WITH YOUR PHOTO` in the hero. Add `assets/avatar.jpg` and swap the placeholder `<div>` for the `<img>`. |
+| **Headshot** | Hidden for now. In `index.html`, find `HEADSHOT (currently hidden)`, delete the word `hidden`, add `assets/avatar.jpg`, delete the placeholder `<div>` and uncomment the `<img>`. |
 | **Project images (optional)** | Uncomment the `REPLACE WITH YOUR PROJECT IMAGE` line at the top of each project card. |
+| **Featured articles** | Two slots under `FEATURED ARTICLES`. Slot 1 links to your Heliocentrism and Success post. For each, replace the headline, link, summary, byline, image (`assets/article-1.jpg`, `article-2.jpg`) and the caption / credit shown beneath the image. |
 | **Project GitHub links** | `REPLACE WITH THE GITHUB REPOSITORY LINK`. Three cards currently point to your GitHub profile because their repo URLs weren't in the resume. |
 | **Resume** | Overwrite `assets/Alexander-Marsh-Resume.pdf` with your latest PDF. |
-| **Colours** | Variables at the top of the `<style>` block. `--bg` is the dark walnut-brown background, `--forest` is the dark green, `--cream` is the text colour, `--burgundy` / `--coral` are the red accents, and `--teal-hi` is a light sage accent. |
+| **Colours** | Variables at the top of the `<style>` block. `--bg` is the dark brown background (`#241603`), `--forest` is the dark green, `--cream` is the text colour, `--burgundy` / `--coral` are the red accents, and `--teal-hi` is a light sage accent. The pinstripes are the `.stripes` rule (`--stripes` sets the count, `--stripe-color` the cream and its opacity). |
 | **Link-preview image** | Uncomment the `og:image` tag in `<head>` and point it at an image in `assets/`. |
 
 ## Notes

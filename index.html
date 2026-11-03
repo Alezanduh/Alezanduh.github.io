@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Alexander Marsh — Data Science &amp; Statistics</title>
   <meta name="description" content="Alexander Marsh is a Statistics and Data Science student at the University of Michigan building data-driven projects in sports analytics, equity and justice.">
-  <meta name="theme-color" content="#150c07">
+  <meta name="theme-color" content="#190f02">
   <meta name="color-scheme" content="dark">
 
   <!-- Open Graph (link previews). REPLACE the image URL once you have a preview image, e.g. https://alezanduh.github.io/assets/preview.png -->
@@ -15,7 +15,7 @@
   <!-- <meta property="og:image" content="https://alezanduh.github.io/assets/preview.png"> -->
 
   <!-- Favicon: inline SVG monogram. REPLACE with your own file if you like: <link rel="icon" href="assets/favicon.png"> -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b100a'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-style='italic' font-size='30' text-anchor='middle' fill='%23f3ecd9'%3Eam%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23241603'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-style='italic' font-size='30' text-anchor='middle' fill='%23f3ecd9'%3Eam%3C/text%3E%3C/svg%3E">
 
   <!-- =====================================================================
        FONTS
@@ -38,14 +38,14 @@
       color-scheme: dark;
 
       /* Your palette */
-      --green: #085c2a;
-      --teal: #0c614d;
-      --burgundy: #6b1212;
+      --green: #074f24;
+      --teal: #0f5d4b;
+      --burgundy: #631010;
 
-      --bg: #1b100a;                       /* page background: dark walnut brown */
+      --bg: #241603;                       /* page background: dark brown */
       --forest: #0d4a26;                   /* darker green for fills (avatar, hover accents) */
       --cream: #f3ecd9;                    /* primary text */
-      --cream-dim: rgba(243, 236, 217, .74);
+      --cream-dim: rgba(243, 237, 217, 0.74);
       --line: rgba(243, 236, 217, .20);
       --teal-hi: #8fca9f;                  /* light sage green for accents on brown */
       --coral: #ec8a84;                    /* light burgundy tint for small accents */
@@ -60,7 +60,10 @@
     /* ---------- Base ---------- */
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background: var(--bg); }
-    body { margin: 0; font-family: var(--font-text); font-size: 1.1rem; line-height: 1.6; color: var(--cream); background: var(--bg); -webkit-font-smoothing: antialiased; }
+    /* Full-page pinstripes: --stripes vertical lines spread evenly across the page width */
+    .stripes { --stripes: 30; --stripe-color: rgba(243, 236, 217, .16); position: absolute; inset: 0; z-index: -1; pointer-events: none;
+      background: repeating-linear-gradient(90deg, var(--stripe-color) 0 2px, transparent 2px calc(100% / var(--stripes))); }
+    body { margin: 0; font-family: var(--font-text); font-size: 1.1rem; line-height: 1.6; color: var(--cream); position: relative; -webkit-font-smoothing: antialiased; }
     img { max-width: 100%; display: block; }
     a { color: inherit; }
     p { margin: 0 0 1em; }
@@ -90,7 +93,7 @@
     section { scroll-margin-top: 64px; }
 
     /* ---------- Navigation ---------- */
-    .site-header { background: #150c07; border-bottom: 1px solid var(--burgundy); z-index: 50; }
+    .site-header { background: #190f02; border-bottom: 1px solid var(--burgundy); z-index: 50; }
     .nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .2rem 1rem; padding: .7rem 0; }
     .brand { font-size: 1.9rem; line-height: 1; text-decoration: none; }
     .brand span { color: var(--coral); }
@@ -105,19 +108,18 @@
     .avatar { width: clamp(110px, 20vw, 190px); aspect-ratio: 1; border-radius: 50%; overflow: hidden; }
     .avatar img, .avatar-ph { width: 100%; height: 100%; object-fit: cover; }
     .avatar-ph { display: grid; place-items: center; background: var(--forest); border: 3px solid var(--burgundy); border-radius: 50%; color: var(--cream); font-family: var(--font-text); font-style: italic; font-weight: 500; font-size: clamp(2.8rem, 8vw, 5rem); line-height: 1; padding-bottom: .08em; }
-    .eyebrow { font-style: italic; color: var(--coral); margin-bottom: .6rem; }
     .hero h1 { font-size: clamp(3.4rem, 11.5vw, 7.5rem); line-height: .95; letter-spacing: -.02em; }
     .role { font-size: clamp(1.3rem, 2.8vw, 1.8rem); line-height: 1.2; color: var(--teal-hi); margin: 1.2rem 0 .8rem; }
     .bio { max-width: 34rem; color: var(--cream-dim); margin-bottom: 0; }
     .cta { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.6rem; }
     .btn { display: inline-flex; align-items: center; padding: .45rem 1.1rem .38rem; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; font-size: 1.15rem; line-height: 1.2; letter-spacing: .1em; transition: background .2s, color .2s, border-color .2s; }
     .btn:hover { background: var(--cream); color: var(--bg); border-color: var(--cream); }
-    .btn.primary { background: var(--burgundy); border-color: var(--burgundy); }
-    .btn.primary:hover { background: var(--cream); border-color: var(--cream); color: var(--bg); }
+    .btn.accent { background: var(--burgundy); border-color: var(--burgundy); }
+    .btn.accent:hover { background: var(--cream); border-color: var(--cream); color: var(--bg); }
     @media (min-width: 760px) { .hero-grid { grid-template-columns: 1fr auto; gap: 3rem; } .avatar { order: 2; } }
 
     /* ---------- Sections ---------- */
-    .block { padding: clamp(2.5rem, 6vw, 4.5rem) 0; border-top: 1px solid rgba(107, 18, 18, .75); }
+    .block { padding: clamp(2.5rem, 6vw, 4.5rem) 0; }
     .block h2 { font-size: clamp(2.4rem, 5.5vw, 3.6rem); line-height: 1; letter-spacing: -.01em; margin-bottom: 1.6rem; }
     .block:not(.contact) h2::after { content: ""; display: block; width: 3rem; height: 4px; margin-top: .7rem; background: var(--burgundy); border-radius: 2px; }
 
@@ -134,7 +136,7 @@
     /* Projects */
     .grid { display: grid; gap: 1.2rem; }
     @media (min-width: 720px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 1.4rem; } }
-    .card { display: flex; flex-direction: column; background: rgba(13, 74, 38, .22); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; transition: border-color .25s; }
+    .card { display: flex; flex-direction: column; background: rgba(7, 44, 22, 0.908); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; transition: border-color .25s; }
     .card:hover { border-color: var(--coral); }
     .card > img { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; }
     .card-body { padding: 1.3rem 1.4rem 1.4rem; display: flex; flex-direction: column; flex: 1; }
@@ -143,6 +145,20 @@
     .card-links { display: flex; flex-wrap: wrap; gap: .3rem 1.3rem; margin-top: auto; }
     .card-links a { font-size: 1.15rem; letter-spacing: .1em; text-decoration: none; border-bottom: 2px solid var(--burgundy); transition: color .2s, border-color .2s; }
     .card-links a:hover { color: var(--coral); border-color: var(--coral); }
+
+    /* Featured articles: text on the left, image with caption/credit beneath on the right */
+    .article { display: grid; gap: 1.2rem 2rem; padding: 1.8rem 0; }
+    .article:first-of-type { padding-top: 0; }
+    .article + .article { border-top: 1px solid var(--line); }
+    .article h3 { font-family: var(--font-text); font-weight: 500; text-transform: none; letter-spacing: -.005em; font-size: clamp(1.7rem, 3.2vw, 2.2rem); line-height: 1.15; margin-bottom: .8rem; }
+    .article h3 a { text-decoration: none; }
+    .article h3 a:hover { text-decoration: underline; text-decoration-color: var(--coral); text-underline-offset: 4px; }
+    .article .dek { color: var(--cream-dim); font-size: 1.1rem; line-height: 1.5; margin-bottom: .9rem; }
+    .article .byline { color: var(--cream-dim); font-size: .95rem; margin: 0; }
+    .article figure { margin: 0; }
+    .article .art-img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; background: rgba(13, 74, 38, .28); border: 3px solid var(--forest); border-radius: 18px; display: block; }
+    .article figcaption { margin-top: .6rem; color: var(--cream-dim); font-size: .85rem; line-height: 1.4; }
+    @media (min-width: 760px) { .article { grid-template-columns: 5fr 7fr; align-items: start; } }
 
     /* Experience (kept lowercase on purpose, so it uses the text face) */
     .timeline { list-style: none; margin: 0; padding: 0; }
@@ -162,7 +178,7 @@
     .contact h2 { font-family: var(--font-text); font-weight: 500; font-style: italic; text-transform: none; letter-spacing: -.01em; line-height: 1; font-size: clamp(3.4rem, 12vw, 7.5rem); margin-bottom: .8rem; }
     .contact p { color: var(--cream-dim); font-size: 1.25rem; margin: 0; }
     .contact a { color: var(--cream); text-decoration-color: var(--coral); text-underline-offset: 4px; }
-    .site-footer { border-top: 1px solid var(--burgundy); padding: 1.3rem 0 2rem; color: var(--cream-dim); font-size: .95rem; }
+    .site-footer { padding: 1.3rem 0 2rem; color: var(--cream-dim); font-size: .95rem; }
     .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .4rem 1.5rem; }
     .foot nav { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; }
     .foot a { text-decoration: none; }
@@ -179,6 +195,8 @@
 </head>
 
 <body>
+  <!-- Full-page pinstripes (about 30 across). Change the count in --stripes, the colour/opacity in --stripe-color. -->
+  <div class="stripes" aria-hidden="true"></div>
   <a class="skip" href="#main">Skip to content</a>
 
   <!-- ===================== HEADER / NAV ===================== -->
@@ -188,6 +206,7 @@
       <ul>
         <li><a href="#about">about</a></li>
         <li><a href="#projects">projects</a></li>
+        <li><a href="#articles">articles</a></li>
         <li><a href="#experience">experience</a></li>
         <li><a href="#contact">contact</a></li>
       </ul>
@@ -199,23 +218,22 @@
     <!-- ===================== HERO ===================== -->
     <section class="hero" id="top" aria-label="Introduction">
       <div class="wrap hero-grid">
-        <div class="avatar">
-          <!-- REPLACE WITH YOUR PHOTO: delete the placeholder <div> below and use
-               <img src="assets/avatar.jpg" alt="Portrait of Alexander Marsh" width="460" height="460"> -->
+        <!-- HEADSHOT (currently hidden). To show it: delete the word "hidden" on the next line.
+             To use your own photo: add assets/avatar.jpg, then delete the placeholder <div> and uncomment the <img>. -->
+        <div class="avatar" hidden>
+          <!-- <img src="assets/avatar.jpg" alt="Portrait of Alexander Marsh" width="460" height="460"> -->
           <div class="avatar-ph" aria-hidden="true">am</div>
         </div>
 
         <div>
-          <p class="eyebrow">Ann Arbor, Michigan</p>
           <h1>alexander marsh</h1>
           <p class="role">data science &amp; statistics at university of michigan</p>
-          <p class="bio">Always curious. Interested in data-based solutions with a focus on equity. I love basketball and music.</p>
+          <p class="bio">always curious. </p>
 
-          <!-- Call-to-action buttons: projects, resume, and every contact / social link -->
+          <!-- Call-to-action buttons: resume and every contact / social link -->
           <div class="cta">
-            <a class="btn primary" href="#projects">View Projects</a>
             <!-- REPLACE: swap the PDF in /assets with your latest resume (keep the filename, or update it here) -->
-            <a class="btn" href="assets/Alexander-Marsh-Resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
+            <a class="btn accent" href="assets/Alexander-Marsh-Resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
             <a class="btn" href="mailto:groethe@umich.edu">Email</a>
             <a class="btn" href="https://www.linkedin.com/in/alexandergroethe/" target="_blank" rel="noopener">LinkedIn ↗</a>
             <a class="btn" href="https://github.com/Alezanduh" target="_blank" rel="noopener">GitHub ↗</a>
@@ -231,8 +249,8 @@
         <h2 id="about-h">about me</h2>
         <div class="about">
           <div>
-            <p>I'm Alexander Marsh, a senior studying Statistics and Data Science at the University of Michigan – Ann Arbor (graduating May 2027). I also spent Winter/Spring 2026 studying Informatics at King's College London.</p>
-            <p>Data intrigues me as a tool to satisfy my ever-curious mind. I adore basketball and you'll find that reflected in most of my applied work, along with data-driven projects that derive tangible benefit and promote equity and justice.</p>
+            <p>I'm Alexander, a senior studying Statistics and Data Science at the University of Michigan – Ann Arbor. I spent much of 2026 studying Informatics at King's College London.</p>
+            <p>Data intrigues me as a tool to entertain my inquisitiveness. I adore basketball and you'll find that reflected in most of my applied work, along with data-driven projects that derive tangible benefit and promote equity and justice.</p>
           </div>
           <ul class="facts">
             <li><strong>University Of Michigan</strong><span>B.S. Statistics, Data Science · May 2027</span></li>
@@ -278,10 +296,10 @@
             <!-- REPLACE WITH YOUR PROJECT IMAGE (optional): <img src="assets/project-wayne-county.jpg" alt="Wayne County case analysis"> -->
             <div class="card-body">
               <h3>Wayne County Legal Justice Analysis</h3>
-              <p>Python pipeline that parses and standardizes 31,000 Wayne County case files (2000–2025) into structured JSON and a SQLite database, then analyzes weapons felony charges against Michigan Compiled Laws to surface potential over-prosecution and charging disparities.</p>
+              <p>Python pipeline that parses and standardizes 31,000 Wayne County case files (2000–2025) into structured JSON and a SQLite database, then analyzes weapons felony charges against Michigan Compiled Laws (MCL) to surface potential over-prosecution and charging stacking that contribute to plea-bargaining disparities.</p>
               <div class="card-links">
                 <!-- REPLACE WITH THE GITHUB REPOSITORY LINK for this project (currently points to your profile) -->
-                <a href="https://github.com/Alezanduh" target="_blank" rel="noopener">GitHub ↗</a>
+                <a href="https://github.com/AlexCSalinas/cicero" target="_blank" rel="noopener">GitHub ↗</a>
               </div>
             </div>
           </article>
@@ -290,7 +308,7 @@
             <!-- REPLACE WITH YOUR PROJECT IMAGE (optional): <img src="assets/project-nba-nn.jpg" alt="Neural network forecasting results"> -->
             <div class="card-body">
               <h3>Deep Neural Network For NBA Player Forecasting</h3>
-              <p>Deep neural network trained on rolling seasons to forecast NBA player performance, with normalization and one-hot encoding of positional features, K-fold cross-validation, and regularization to reduce overfitting.</p>
+              <p>Deep neural network using Pytorch and TensorFlow trained on rolling seasons to forecast NBA player performance, with normalization and one-hot encoding of positional features, K-fold cross-validation, and regularization to reduce overfitting.</p>
               <div class="card-links">
                 <!-- REPLACE WITH THE GITHUB REPOSITORY LINK for this project (currently points to your profile) -->
                 <a href="https://github.com/Alezanduh" target="_blank" rel="noopener">GitHub ↗</a>
@@ -299,6 +317,44 @@
           </article>
 
         </div>
+      </div>
+    </section>
+
+    <!-- ===================== FEATURED ARTICLES ===================== -->
+    <section class="block" id="articles" aria-labelledby="articles-h">
+      <div class="wrap">
+        <h2 id="articles-h" class="reveal">featured articles</h2>
+
+        <!-- ARTICLE SLOT 1. Layout: headline, summary and byline on the left; image with its caption / credit beneath on the right. -->
+        <article class="article reveal">
+          <div>
+            <h3><a href="https://alexanderhoops.substack.com/p/heliocentrism-and-success?r=6cnqh3" target="_blank" rel="noopener">Heliocentrism And Success</a></h3>
+            <p class="dek">A regression analysis in R and Python of how heliocentric, load-heavy players relate to team success.</p>
+            <p class="byline">By Alexander Marsh</p>
+          </div>
+          <figure>
+            <!-- REPLACE WITH YOUR ARTICLE IMAGE: delete the placeholder <div> and use <img class="art-img" src="assets/article-1.jpg" alt="Describe the image"> -->
+              <img class="art-img" src="assets/article-1.jpg" alt="Luka Doncic Heliocentrism" />
+            <!-- REPLACE WITH YOUR CAPTION AND CREDIT, e.g. "Caption text. (Photo: Name / Source)" -->
+            <figcaption>image courtesy of Athabasca Advocate</figcaption>
+          </figure>
+        </article>
+
+        <!-- ARTICLE SLOT 2: replace the headline, link, summary, byline, image and caption. -->
+        <article class="article reveal">
+          <div>
+            <!-- REPLACE WITH YOUR ARTICLE LINK AND TITLE -->
+            <h3><a href="https://alexanderhoops.substack.com/" target="_blank" rel="noopener">Life Imitates Art</a></h3>
+            <p class="dek">The story of the Storm on the Sea of Galilee, an in-depth analysis into the rejection of the mid-range shot in the modern NBA & an introduction to Zen Buddhism.</p>
+            <p class="byline">By Alexander Marsh</p>
+          </div>
+          <figure>
+            <!-- REPLACE WITH YOUR ARTICLE IMAGE: delete the placeholder <div> and use <img class="art-img" src="assets/article-2.jpg" alt="Describe the image"> -->
+              <img class="art-img" src="assets/article-2.jpg" alt="DeMar DeRozan mid-range" />
+            <!-- REPLACE WITH YOUR CAPTION AND CREDIT -->
+            <figcaption>image courtesy of NBA.com</figcaption>
+          </figure>
+        </article>
       </div>
     </section>
 
@@ -359,6 +415,29 @@
   <script>
     // Footer year
     try { document.getElementById('year').textContent = new Date().getFullYear(); } catch (e) {}
+
+    // Nudge each article figure (image + caption) so it sits centred
+    // between two neighbouring pinstripes. Falls back to no nudge without JS.
+    (function () {
+      var stripes = document.querySelector('.stripes');
+      var figs = document.querySelectorAll('.article figure');
+      function center() {
+        if (!stripes) return;
+        var cell = stripes.getBoundingClientRect().width / 30; // matches --stripes
+        figs.forEach(function (f) {
+          f.style.transform = '';
+          var r = f.getBoundingClientRect();
+          var sx = stripes.getBoundingClientRect().left;
+          var mid = r.left + r.width / 2 - sx;
+          // stripe k covers [k*cell, k*cell+2]; gap midpoint between stripes is (k+.5)*cell + 1
+          var target = (Math.round((mid - 1) / cell - 0.5) + 0.5) * cell + 1;
+          f.style.transform = 'translateX(' + (target - mid).toFixed(2) + 'px)';
+        });
+      }
+      center();
+      window.addEventListener('resize', center);
+      window.addEventListener('load', center);
+    })();
 
     // Gentle reveal-on-scroll; content is always visible if this fails.
     (function () {
